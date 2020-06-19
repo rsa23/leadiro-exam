@@ -10,11 +10,11 @@ import org.springframework.context.annotation.ComponentScan;
 @Slf4j
 @SpringBootApplication
 @ComponentScan({"com.leadiro"})
-public class MicroserviceStarterApplication implements ApplicationRunner {
+public class Application implements ApplicationRunner {
     private static final String APP_NAME = "starter";
 
     public static void main(String[] args) {
-        SpringApplication.run(MicroserviceStarterApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
     @Override
