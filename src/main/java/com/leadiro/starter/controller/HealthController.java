@@ -16,8 +16,11 @@ public class HealthController {
     @Value("${app.version}") private String version;
     @Value("${app.timestamp}") private String timestamp;
 
+    /**
+     * Return time and version details for load balancer health checks
+     */
     @GetMapping(value={ "/ping", "/health", "/starter/health" })
-    public Map<String, String> ping() {
+    public Map<String, String> healthy() {
         Instant now = Instant.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG).withZone(ZoneId.of("UTC"));
         return ImmutableMap.of("time", formatter.format(now), "version", version, "build", timestamp);
