@@ -13,7 +13,7 @@ class HealthControllerTest {
 
     @Test
     void health() {
-        def health = controller.ping()
+        def health = controller.healthy()
         Assertions.assertNotNull(health, 'Health is null')
         println(health)
     }
