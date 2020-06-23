@@ -24,6 +24,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>5.3.3.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>5.3.3.RELEASE</version>
+        </dependency>
         <!--Groovy language processor-->
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
@@ -62,6 +72,23 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>28.2-jre</version>
+        </dependency>
+
+        <!--Auth0-->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>jwks-rsa</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>auth0</artifactId>
+            <version>1.15.0</version>
         </dependency>
 
         <!--Test-->
