@@ -34,15 +34,21 @@ public class JwtBearerTokenAuthenticationFilter extends OncePerRequestFilter {
                 //Remove the Bearer from the start of the token
                 token = StringUtils.substringAfter(token, " ");
             }
-            Authentication authorised = decoder.getAuthentication(token);
-            SecurityContextHolder.getContext().setAuthentication(authorised);
-            //Add the email to the logging context
-            if (authorised != null) {
-                AuthAccount account = (AuthAccount) authorised.getPrincipal();
-                MDC.put("email", account.getEmail());
+            try {
+                Authentication authorised = decoder.getAuthentication(token);
+                SecurityContextHolder.getContext().setAuthentication(authorised);
+                //Add the email to the logging context
+                if (authorised != null) {
+                    AuthAccount account = (AuthAccount) authorised.getPrincipal();
+                    MDC.put("email", account.getEmail());
+                }
+                else {
+                    MDC.put("email", "anonymous");
+                }
             }
-            else {
-                MDC.put("email", "anonymous");
+            catch (InvalidTokenException e) {
+                //Set the response status to unauthorised
+                log.warn("Invalid token for access to {}: {}", request.getRequestURI(), e.getMessage());
             }
             filterChain.doFilter(request, response);
         }

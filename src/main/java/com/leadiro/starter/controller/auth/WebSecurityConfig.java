@@ -16,8 +16,7 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @Slf4j
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private JwtBearerTokenAuthenticationFilter jwtFilter;
+    @Autowired private JwtBearerTokenAuthenticationFilter jwtFilter;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
