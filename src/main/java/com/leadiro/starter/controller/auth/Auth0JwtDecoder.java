@@ -64,9 +64,10 @@ public class Auth0JwtDecoder implements JwtDecoder {
         try {
             //Get the key id from the token, this identifies the id of the key that was used to sign it
             Jwk key = getKey(jwt.getKeyId());
-            Algorithm algorithm = Algorithm.RSA256((RSAPublicKey) key.getPublicKey(), null);
+            //Obtain the public key from Auth0's endpoint and no private key is required for RSA256
+            Algorithm rs256 = Algorithm.RSA256((RSAPublicKey) key.getPublicKey(), null);
             //Verify the token by checking the signature and the claims
-            JWTVerifier verifier = JWT.require(algorithm).withIssuer(AUTH0_TENANT).build();
+            JWTVerifier verifier = JWT.require(rs256).withIssuer(AUTH0_TENANT).build();
             return verifier.verify(token).getClaims();
         }
         catch (JwkException | JWTVerificationException e) {

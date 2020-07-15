@@ -1,6 +1,6 @@
 
 app:
-  version: search-master-2
+  version: starter-master-1
   timestamp: Thu Jun 18 15:32:18 UTC 2020
 
 server:
@@ -12,7 +12,7 @@ server:
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://${database.host}:5432/${database.database}?ApplicationName=ReplyforceApi
+    url: jdbc:postgresql://${database.host}:5432/${database.database}?ApplicationName=StarterApi
     username: ${database.username}
     password: ${database.password}
   jackson:

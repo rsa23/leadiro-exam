@@ -21,9 +21,9 @@ cluster=834254992668
 docker build -t ${repo}:latest .
 docker tag ${repo}:latest ${cluster}.dkr.ecr.us-east-1.amazonaws.com/${repo}:latest
 
-#Auth against the repository as the current AWS user
-aws --region us-east-1 ecr get-login-password | docker login --username AWS --password-stdin ${cluster}.dkr.ecr.us-east-1.amazonaws.com
-docker push ${cluster}.dkr.ecr.us-east-1.amazonaws.com/${repo}
+#Auth against the repository as the current AWS user and push the container
+#aws --region us-east-1 ecr get-login-password | docker login --username AWS --password-stdin ${cluster}.dkr.ecr.us-east-1.amazonaws.com
+#docker push ${cluster}.dkr.ecr.us-east-1.amazonaws.com/${repo}
 
 mvn clean
 
