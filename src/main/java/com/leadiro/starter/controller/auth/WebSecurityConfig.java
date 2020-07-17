@@ -32,10 +32,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .addFilterBefore(jwtFilter, BasicAuthenticationFilter.class)
             //Configure URLs
             .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS).permitAll()            //Allow all CORS OPTIONS request
-                .antMatchers("/public/**").permitAll()      //Allow access to URLS marked as public
+                .antMatchers(HttpMethod.OPTIONS).permitAll() //Allow all CORS OPTIONS request
+                .antMatchers("/public/**").permitAll() //Allow access to URLS marked as public
+                .antMatchers("/ping", "/health", "/starter/health").permitAll() //Allow access to the health pings
                 .antMatchers("/index.html", "/img/*.png", "/js/*.js", "/css/*.css").permitAll() //Allow access static Vue resources
-                .anyRequest().authenticated();                          //Force auth for everything else
+                .anyRequest().authenticated(); //Force auth for everything else
     }
 
 }
