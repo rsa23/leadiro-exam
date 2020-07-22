@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Leadiro Starter Project 🚀
 
 This is a blank starter project that should be used as the foundation for new REST microservices.
@@ -47,3 +48,7 @@ The filter relies on a `JwtDecoder`, and if using Auth0 one is supplied in `Auth
 ### Docker
 
 A very simple `Dockerfile` and `build.sh` script are provided in the root of the project.
+=======
+# leadiro-exam
+# First Commit
+>>>>>>> 496571e060d4c9fa1270ac36352e36a6fa9ac2d6
