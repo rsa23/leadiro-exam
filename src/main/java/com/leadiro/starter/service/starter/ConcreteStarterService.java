@@ -17,7 +17,7 @@ public class ConcreteStarterService implements StarterService {
 
     @Override
     public Starter getStarter(int id) {
-        log.debug("Getting Starter {}", id);
+//        log.debug("Getting Starter {}", id);
         return mapper.getStarter(id);
     }
 
